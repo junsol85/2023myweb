@@ -3,7 +3,6 @@ html,body{height: 100%;}
 body{
     font-family: 'Nanum Gothic', sans-serif;
     font-size: 14px;
-
 }
 
 /* reset  */
@@ -54,11 +53,6 @@ h1 img{display: block;}
 
 /* visual  */
 .visual{
-    /* background: #1B335F; */
-    /* background-color: #1B335F;
-    background-image: url(../img/visual_bg.jpg);
-    background-repeat: no-repeat;
-    background-position: center; */
     background: #213969 url(../img/visual_bg.jpg) no-repeat center;
 }
 
