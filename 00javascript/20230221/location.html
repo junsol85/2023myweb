@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="day"></div> -->
+
+    <script>
+        // const week = new Date().getDay();
+        // console.log(week);
+
+
+        // let day ="";
+
+        // switch(week){
+        //     case 0:
+        //         day = "일";
+        //         break;
+        //     case 1:
+        //         day = "월";
+        //         break;
+        //     case 2:
+        //         day = "화";
+        //         break;
+        //     case 3:
+        //         day = "수";
+        //         break;
+        //     case 4:
+        //         day = "목";
+        //         break;
+        // };
+
+        // // document.write("오늘은 " + day + "요일 입니다.");
+        // document.getElementById("day").innerHTML = "오늘은 " + day + "요일 입니다.";
+        // console.log(document.getElementById("day").innerHTML)
+
+
+        let text="";
+        let day=new Date() .getDay();
+
+        switch(week){
+            case 1: day = "월요일"
+            case 2: day = "화요일"
+            text="HTML5"
+            break;
+
+            case 3: day = "수요일"
+            case 4: day = "목요일"
+            text="JavaScript"
+            break;
+
+            case 5: day = "금요일"
+            case 6: day = "토요일"
+            text="영어"
+            break;
+
+            case 0: day = "일요일"
+            text="수영"
+        }
+
+        document.write("오늘은" + day + "입니다. 학습할 과목은" + text + "입니다.");
+    </script>
+</body>
+</html>
