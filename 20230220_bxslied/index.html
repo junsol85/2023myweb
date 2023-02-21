@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,25 +8,46 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/jquery.bxslider.css">
     <style>
-        *{margin: 0;padding: 0;box-sizing: border-box;}
-        li{list-style: none;}
-        body{background: violet;}
-        .slide img{width: 100%;}
-        .wrap{width: 1000px;
-        margin: 0 auto;}
-        .content{
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container{width: 1000px; margin: 0 auto; position: relative;}
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            background: violet;
+        }
+
+        .slide img {
+            width: 100%;
+        }
+
+        .wrap {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .content {
             height: 200px;
             background-color: skyblue;
         }
+
         .bx-wrapper {
-    -moz-box-shadow: 0 0 0 none;
-    -webkit-box-shadow: 0 0 0 none;
-    box-shadow: 0 0 0 white;
-    border: none;
-    background: #fff;}
+            -moz-box-shadow: 0 0 0 none;
+            -webkit-box-shadow: 0 0 0 none;
+            box-shadow: 0 0 0 white;
+            border: none;
+            background: #fff;
+        }
     </style>
 
-    
+
 </head>
 
 <body>
@@ -52,10 +74,10 @@
     <script>
         $(document).ready(function(){
             $(".slide").bxSlider({
-            auto: true
+                auto: true
             });
-            $(".slide1").bxSlider();
         })
     </script>
 </body>
+
 </html>
