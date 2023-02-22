@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="city">도시</div>
+    <div class="lastname">성</div>
+    <div id="phone">핸드폰</div>
+    <div id="baseball">야구팀</div>
+
+    <script>
+        let num = 1;
+        let sum = 0;
+
+        while(num <= 10){
+            sum = sum + num;
+            num = num + 1;
+        }
+
+        console.log(sum)
+
+        let sum1=0;
+
+        for(let i=1; i<10; i++){
+            sum1 = sum1 + 1;            
+        }
+        console.log(sum1)
+
+        let arr =["서울","부산","인천"]
+        let alink =[
+            "https://www.naver.com",
+            "https://www.daum.net",
+            "https://www.nate.com",
+        ]
+        let city = "";
+
+        for(i=0; i<arr.length; i++){
+            city = city + "<a href='" + alink[i] + "'>" + arr[i] + "</a><br>";
+        }
+        document.getElementById("city").innerHTML = city;
+
+        // ---------------------------------------------------
+
+
+        let arr1=["송","김","최"]
+        let alink1 =[
+            "http://www.netmarble.net",
+            "http://www.nexon.com",
+            "http://www.hangame.com"
+        ]
+        let lastname = "";
+
+        for(i=0;i<arr1.length;i++){
+            lastname = lastname + "<a href='" + alink1[i] + "'>" + arr1[i] + "</a><br>"
+        }
+
+        document.getElementsByClassName("lastname")[0].innerHTML = lastname
+
+
+        // ---------------------------------------------------
+
+        let arr2 =["삼성", "애플", "모토로라"]
+        let alink2 =[
+            "https://www.samsung.com/sec/",
+            "https://www.apple.com/kr/?afid=p238%7CHwJg55uX_mtid_18707vxu38484&cid=aos-kr-kwna-brand",
+            "https://www.motorola.com/kr/"
+        ]
+        let phone = "";
+
+        for(i=0; i<arr2.length; i++){
+            phone = phone + "<a href='" + alink2[i] + "'>" + arr2[i] + "</a><br>"
+        }
+        document.getElementById("phone").innerHTML = phone
+
+        // -----------------------------------------------------
+
+        const arr3=["kt위즈", "lg트윈스", "ssg랜더스", "삼성라이온즈", "키움히어로즈"]
+        const link3=[
+            "https://www.ktwiz.co.kr/",
+            "https://www.lgtwins.com/service/html.ncd?view=/pc_twins/twins_main/twins_main/",
+            "http://www.ssglanders.com/main",
+            "http://www.samsunglions.com/",
+            "https://www.heroesbaseball.co.kr/index.do"
+
+        ]
+        let baseball = "";
+
+        for(i=0;i<arr3.length;i++){
+            baseball = baseball + "<a href='" + link3[i] + "'>" + arr3[i] + "</a><br>" 
+        }
+        document.getElementById("baseball").innerHTML = baseball
+
+        // baseball += `<a href="${alink[i]}">${arr[i]}</a><br>` 아래와 같음
+        // baseball = baseball + "<a href='" + link3[i] + "'>" + arr3[i] + "</a><br>"
+ 
+    </script>
+</body>
+</html>
