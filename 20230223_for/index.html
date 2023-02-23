@@ -6,16 +6,51 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
     <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        li{list-style: none;}
+        .clearfix::after{content: none; display: block; clear: both;}
+        a:link,a:visited{text-decoration: none; color: black;}
+        .container{width: 1000px; margin: 0 auto;}
+
+        .imgView{
+            float: left;
+            margin-right: 25px;
+            width: calc( ( 100% - 50px ) / 3 );
+            border: 1px solid #eee;
+        }
+
+        .cWrap .img div:last-child{margin-right: 0;}
+
+        .img img{width: 100%;}
+
+        .cWrap h3{
+            padding: 10px 0;
+        }
+
+        .cWrap p{
+            padding-bottom: 10px;
+        }
+
+        div.imgView:hover{
+            transform: translate( 10px -10px );
+            transition: 0.3s;
+        }
 
     </style>
 </head>
-<body>
-    <div class="img">
 
+<body>
+    <div class="wrap container clearfix">
+        <div class="cWrap">
+            <div class="img"></div>
+        </div>
     </div>
 
-    <script>
 
+<!-- ----------------------------------------------------------------- -->
+
+
+    <script>
         let sum = 0;
         for(let i=0;i<10;i++){
             sum = sum + i
@@ -51,15 +86,15 @@
         ]
         
         for(let i=0;i<img.length;i++){
-            imgView += "<div class='imgView'>"
-            imgView += "img src='../../images/" + img[i] + "'>"
+            imgView += "<div class='imgView'> " 
+            imgView += "<img src='../images/" + img[i] + "'>"
             imgView += "<h3>" + txt[i] + "</h3>";
             imgView += "<p>" + content[i] + "</p>";
             imgView += "</div>"
-
         }
 
         document.getElementsByClassName("img")[0].innerHTML = imgView
+
     </script>
 </body>
 </html>
