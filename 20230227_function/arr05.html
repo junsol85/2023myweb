@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+
+    </div>
+    <script>
+        const wrapElem = document.querySelector(".wrap")
+        let arr = ["서울", "대구", "부산", "제주"];
+        
+        // 메소드 
+        // 메소드 안에 함수를 만들었을땐 소괄호 X, 바깥쪽에서 만들었으면 ㄱㄱ
+        arr.forEach(function(item){
+            console.log(arr[item])
+            txt += item    
+        })
+        wrapElem.innerHTML = txt
+        // $(".wrap").html(txt)
+
+        for(let i=0;i<arr.length;i++){
+            console.log(arr[i])
+        }
+    </script>
+</body>
+</html>

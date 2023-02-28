@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        li{list-style: none;}
+        .clearfix::after{content: ""; display: block; clear: both;}
+        a:link,a:visited{text-decoration: none; color:#333}
+
+        .wrap{width: 1000px;
+        margin: 0 auto;}
+
+        .wrap li{
+            float: left;
+            width: calc( ( 100% - 50px) / 3 );
+            margin-right: 25px;
+        }
+
+        .wrap li:last-child{
+            margin-right: 0px;
+        }
+
+        .imgWrap{
+            position: relative;
+            padding-top: 60%;
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .imgWrap img{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .wrap .textWrap{
+            padding: 10px 20px;
+            background-color: #ddd;
+        }
+    </style>
+
+</head>
+    <div class="wrap">
+        <ul class="clearfix">
+            <li>
+                <div class="imgWrap">
+                <!-- 16 : 9 = 100 : 56  가로100:세로60 -->
+                    <img src="../images/img1.jpg" alt="">
+                </div>
+                <div class="textWrap">
+                    <h3>Lorem, ipsum dolor.</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis, ex!</p>
+                </div>
+            </li>
+            <li>
+                <div class="imgWrap">
+                    <img src="../images/img2.jpg" alt="">
+                </div>
+                <div class="textWrap">
+                    <h3>Lorem, ipsum dolor.</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis, ex!</p>
+                </div>
+            </li>
+            <li>
+                <div class="imgWrap">
+                    <img src="../images/pc01.jpg" alt="">
+                </div>
+                <div class="textWrap">
+                    <h3>Lorem, ipsum dolor.</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis, ex!</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+<body>
+    
+</body>
+</html>
