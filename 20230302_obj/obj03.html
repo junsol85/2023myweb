@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            border: 1px solid #000;
+        }
+
+        table{
+            border-collapse: collapse;
+        }
+        
+        tr{
+            background: #ddd;
+            text-align: center;
+        }
+
+        tr:nth-child(1){
+            background: skyblue;     
+        }
+        tr td:first-child{
+            border-left: 0 none;
+        }
+        tr td:last-child{
+            border-right: 0 none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="score">
+        <table>
+            <tr class="tr1st">
+                <td>이름</td>
+                <td>국어</td>
+                <td>영어</td>
+                <td>수학</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        const arr = [ 
+            {
+                name:"송호준",
+                kor:70,
+                eng:80,
+                math:60,
+            },
+            {
+                name:"홍길동",
+                kor:50,
+                eng:70,
+                math:90,
+            },
+            {
+                name:"이춘식",
+                kor:40,
+                eng:50,
+                math:100,
+            },
+        ]
+
+        const sElem = document.querySelector(".score");
+        let kSum = 0;
+        let tSum = "<table>";
+        tSum += "<tr>";
+        tSum += "<td>이름</td>";
+        tSum += "<td>국어</td>";
+        tSum += "<td>영어</td>";
+        tSum += "<td>수학</td>";
+        tSum += "</tr>";
+
+        for(let i=0;i<arr.length;i++){
+            tSum += "<tr>";
+            tSum += "<td>"+ arr[i].name + "</td>";
+            tSum += "<td>"+ arr[i].kor + "</td>";
+            tSum += "<td>"+ arr[i].eng + "</td>";
+            tSum += "<td>"+ arr[i].math + "</td>";
+            tSum += "</tr>";
+            
+            kSum += arr[i].kor;
+        }
+
+        tSum += "<tr>";
+        tSum += "<td></td>";
+        tSum += "<td>"+ parseInt(kSum / arr.length) +"</td>";
+        tSum += "<td></td>";
+        tSum += "<td></td>";
+        tSum += "</tr>";
+
+        sElem.innerHTML = tSum;
+    </script>
+</body>
+</html>

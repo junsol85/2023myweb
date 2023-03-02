@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="score">
+        <table>
+            <tr>
+                <td>이름</td>
+                <td>국어</td>
+                <td>수학</td>
+                <td>영어</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        const arr = [
+            {name:"송호준",
+            kor:70,
+            eng:80,
+            math:50,
+        },
+            {name:"김정운",
+            kor:80,
+            eng:60,
+            math:70,
+        },
+            {name:"이희근",
+            kor:60,
+            eng:50,
+            math:30,
+        },
+            {name:"조용호",
+            kor:40,
+            eng:70,
+            math:65,
+        },
+            {name:"한지웅",
+            kor:50,
+            eng:55,
+            math:45,
+        },
+        ]
+
+        const sElem = document.querySelector(".score");
+        let sTxt = 
+        sTxt += "<table>"
+            sTxt += "<tr>"
+            sTxt += "<td>이름</td>"
+            sTxt += "<td>국어</td>"
+            sTxt += "<td>영어</td>"
+            sTxt += "<td>수학</td>"
+            sTxt += "</tr>"
+
+        for(let i=0;i<arr.length;i++){
+            sTxt += "<tr>"
+            sTxt += "<td>"+ arr[i].name + "</td>"
+            sTxt += "<td>"+ arr[i].kor + "</td>"
+            sTxt += "<td>"+ arr[i].eng + "</td>"
+            sTxt += "<td>"+ arr[i].math + "</td>"
+            sTxt += "</tr>"
+        }
+    </script>
+</body>
+</html>
