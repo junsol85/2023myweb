@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .inpWrap,.listView{
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        .inpWrap{margin-bottom: 10px;
+            background-color: #19CE60;}
+
+
+        .listView ul li{
+            display: flex;
+            justify-content: space-between;
+        }
+
+    
+        .listView .view{
+            background: violet;
+            height: 90px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="inpWrap">
+        <input type="text" class="inp" value="" placeholder="오늘의 할일은..">
+        <button class="btn1">입력</button>
+    </div>
+    <div class="listView">
+        <ul></ul>
+        <div class="view">오늘의 할일을 입력하세요</div>
+        <button class="btnAlldel" onclick="allDel()">전체삭제</button>
+    </div>
+
+<!-- ----------------------------------------------------------------------------------- -->
+
+    <script>
+        // 어느 HTML의 클래스에 변화를 줄지 생각
+        const inpElem = document.querySelector(".inp");
+        const btn1Elem = document.querySelector(".btn1");
+        const listElem = document.querySelector(".listView ul");
+        const listNoneElem = document.querySelector(".view");
+        const btnAllElem = document.querySelector(".btnAlldel");
+
+        // 배열 데이터 (입력값)
+        let listData = [];
+
+        // 이벤트 생성 (주체를 먼저 생각해보기! 어떤 클래스를 행동하게 했을 때, 해당하는 값이 어떻게 변화하게 할 것인지)
+        btn1Elem.addEventListener("click",function(){
+            if(inpElem.value == ""){
+                alert("오늘의 할일을 입력하세요");
+                inpElem.focus();
+            }else{
+                listData.push(inpElem.value);
+                viewData();
+                inpElem.value = "";
+            }
+        })
+
+        // 함수 생성, 위에서 데이터가 쌓이게 하는 박스인 listData 안에 배열값을 연속헤서 줘서 데이터 생성, 축적 데이터는 viewList에 담는다.
+        // 즉, viewData 함수가 돌면서 나온 값이 viewList에 담기고, 이 담긴 데이터는 listData의 하나의 배열 데이터가 된다.
+        function viewData(){
+            let viewList = ""
+            // for(let i=0;i<listData.length;i++){
+            //     viewList += "<li>" + listData[i] + "<span onclick= 'itemDel("+ i +")''>삭제</span>" + "</li>"
+            // }
+
+            // 위에 for문이랑 아래 forEach문이랑 비슷한데, ForEach문은 배열 데이터 일때 사용가능
+            listData.forEach(function (item,index){
+                viewList += `<li>${item}<span onclick= "itemDel(${index})">삭제<span></li>`
+            })
+
+            // 위에 함수 값을 어느곳에 뿌려줄지 결정 : HTML안의 listElem 에다가, 즉, .listView class에,
+            // 위에 For 또는 For each문을 돌려 나온 값인 viewList를 삽임하겠다는 의미
+            listElem.innerHTML = viewList;
+
+            // listData의 값이(if) 위 viewData에서 계산해서 나온 함수의 배열 index값이 0개보다 크다면(데이터 값이 있으면), btnAllElem의 스타일과 디스플레이를 "블럭(보임) 처리해주고"
+            // 그외의 값(else), 즉, 배열 데이터 값이 0개보다 작다면(데이터 값이 없으면), btnAllElem(전체삭제) 버튼의 스타일을 안보이게 하고 화면에 띄워주는 값을 보이게 않게 한다.
+            // 무조건 위 함수의 데이터가 있어야 하기 때문에 마지막에 viewData 함수를 불러준다.
+            if(listData.length>0){
+                btnAllElem.style.display = "block"
+                listNoneElem.style.display = "none"
+            }else{
+                btnAllElem.style.display = "none"
+                listNoneElem.style.display = "flex" // CSS값에 들어간다고 보면 됌
+            }
+        };
+        viewData();
+
+        // 전체삭제 함수 만들어주기, HTML의 onclick="allDel()">전체삭제</button> 이 부분에서 함수를 만들어 줬기 때문에
+        // listData 값을 없게 만들고 없어진 값을 다시 viewData를 가져오게 한다.
+        function allDel(){
+            listData = [];
+            viewData();
+        }
+
+        function itemDel(index){
+            listData.splice(index,1);
+            viewData();
+        };
+    </script>
+</body>
+</html>
