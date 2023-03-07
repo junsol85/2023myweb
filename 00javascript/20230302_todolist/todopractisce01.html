@@ -12,6 +12,14 @@
     
     <!-- 기본 style -->
     <style>
+    .item.done{background: palegoldenrod;}
+
+    .listView ul li .icon a{color:white}
+
+    .btn_modi{
+        displat
+    }
+
     .wrap,.listWrap{margin: 0 auto;
         width: 300px;}
 
@@ -32,34 +40,101 @@
 
 <!-- HTML -->
 <body>
-    <div class="wrap container">
-        <input type="text" class="inp" placeholder="오늘의 할일은..">
-        <button class="btn1">입력</button>
-    </div>
-    
-    <div class="listWrap">
-        <ul></ul>
-        <button class="btnAlldel" onclick="listAlldel()">전체삭제</button>
-    </div>
+    <input type="hidden" class="num">
+        <div class="wrap container">
+            <input type="text" class="inp" placeholder="오늘의 할일은..">
+            <button class="btn_input">입력</button>
+            <button class="btn_modi">수정</button>
+        </div>
+        
+        <div class="listWrap">
+            <ul></ul>
+            <button class="btnAlldel" onclick="listAlldel()">전체삭제</button>
+        </div>
+    </input>
 
 <script>
     const wElem = document.querySelector(".wrap");
-    const btn1Elem = document.querySelector(".btn1");
+    const btnIpElem = document.querySelector(".btn_input");
+    const btnMoElem = document.querySelector(".btn_modi");
     const inpElem = document.querySelector(".inp");
     const listElem = document.querySelector(".listWrap ul");
+    const numElem = document.querySelector(".num");
 
 
-    let listView = [];
+    let listData = [];
 
-    btnElem.addEventListener("click", function(){
+    // 입력버튼 이벤트
+    btnInpElem.addEventListener("click", function(){
         if(inpElem.value != ""){
-            localStorage.setItem(inpElem.value, inpElem.value)
+            listData.push(value);
+            viewData();
+            inpElem.value = ""
         }else{
             alert("오늘의 할일을 입력하세요.")
             inpElem.focus()
         }
-        console.log(listData);
+        viewData();
     })
+
+    // 수정버튼 이벤트
+    btnMoElem.addEventListener("click", function(){
+        listData[numElem.value].todo = inpElem.value;
+        listData[numElem.value].done = false;
+        inpElem.value = "";
+        btnIpElem.style.display = "inline-block";
+        btnMoElem.style.display = "none";
+        viewData();
+    })
+
+    function viewData(){
+            if(localStorage.length>0){
+                let localData = localStorage.getItem("todoData")
+                listData = JSON.parse(localData)
+            }
+            let viewList = "";
+            listData.forEach(function(item,index){
+                if(item.done == true){
+                    viewList += `<li class="item done">${item.todo}`
+                }else{
+                    viewList += `<li class="item">${item.todo}`
+                }
+                viewList += `<div class="icon">
+                            <a href="javascript:void(0)" onclick="itemDel(${index})"><i class="fa-solid fa-trash-can"></i></a>
+                            <a href="javascript:void(0)" onclick="modi('${item.todo}',${index})"><i class="fa-sharp fa-solid fa-hammer"></i></a>
+                            <a href="javascript:void(0)" onclick="done(${index})"><i class="fa-solid fa-square-check"></i></a>
+                            </div></li>`
+            })
+            listElem.innerHTML = viewList;
+        }
+        viewData();
+
+        // 단일 삭제 버튼
+        function itemDel(index) {
+            listData.splice(index,1)
+            viewData();
+        }
+
+        // 들어가 있는 배열의 데이터값 수정버튼
+        function modi(todo,index){
+            inpElem.value = todo
+            numElem.value = index
+            btnIpElem.style.display = "none"
+            btnMoElem.style.display = "lnline-block"
+        }
+
+        // 완료체크 버튼
+        function done(index) {
+            listData[index].done = !listData[index].done
+            viewData();
+        }
+
+
+        // 전체삭제버튼
+        function listAllDell(){
+            listData = [];
+            viewData();
+        }
 </script>
 
 </body>
