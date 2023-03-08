@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 이벤트 첫번째 방법 HTML -->
+    <p onmouseover="this.style.backgroundColor='skyblue'" onmouseout="this.style.backgroundColor='initial'">
+        마우스를 올려주세요</p>
+
+    <!-- 이벤트 두번째 방법 속성값-->
+    <p class="box">마우스를 올려주세요</p>
+
+    <script>
+        document.querySelector(".box").onmouseover = function () {
+            document.querySelector(".box").style.backgroundColor = "skyblue"
+        }
+
+        // <!-- // or 2-2 방법
+
+    // const boxElem = document.querySelector(".box");
+    // boxElem.onmouseover = function (){
+    //     boxElem.onmouseover.style.backgroundColor = "skyblue"
+    // }
+
+    // function mouseover(){
+    //     boxElem.style.backgroundColor = "skyblue"
+    // }
+    // function mouseout(){
+    //     boxElem.style.backgroundColor = "initial"
+    // }
+
+    // boxElem.onmouseover = mouseover;
+    // boxElem.onmouseout = mouseout;
+    </script>
+
+
+
+    <!-- 이벤트 세번째 방법 함수-->
+<p class="box1">마우스를 올려주세요</p>
+
+<script>
+    const box1Elem = document.querySelector(".box1");
+
+    box1Elem.addEventListener("mouseover",function(){
+        box1Elem.style.width = 100 + "px"
+        box1Elem.style.backgroundColor = "skyblue"
+    })
+
+    box1Elem.addEventListener("mouseout",function(){
+        box1Elem.style.width = 100 + "px"
+        box1Elem.style.backgroundColor = "init"
+    })
+
+    // 3-2 방법 
+
+    // box1Elem.addEventListener("mouseover",mOver)
+    // box1Elem.addEventListener("mouseout",mOut)
+
+    // function mOver(){
+    //     box1Elem.style.width = 100 + "px"
+    //     box1Elem.style.backgroundColor = "skyblue"
+    // }
+
+    // function mOut(){
+    //     box1Elem.style.width = 100 + "%"
+    //     box1Elem.style.backgroundColor = "initial"
+    // }
+</script>
+
+</body>
+
+</html>

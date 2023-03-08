@@ -1,0 +1,36 @@
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+}
+.container h1 {
+  background: skyblue;
+  width: 100px;
+}
+.container a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  margin-left: auto;
+  width: 400px;
+}
+.nav ul {
+  display: flex;
+  height: 100%;
+}
+.nav ul li {
+  flex-grow: 1;
+}
+.nav ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: skyblue;
+}
+.nav ul li a:hover {
+  background: pink;
+}/*# sourceMappingURL=style.css.map */
