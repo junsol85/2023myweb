@@ -151,14 +151,7 @@
             localStorage.setItem("todoData",valueData)
             viewData();
          }
-
-         function modi(todo,index){
-            inpElem.value = todo;
-            numElem.value = index;
-            btnIpElem.style.display = "none"
-            btnMoElem.style.display = "inline-block"
-         }
-
+         
          function listAllDell(){
             listData = [];
             let valueData = JSON.stringify(listData)
@@ -166,5 +159,14 @@
 
             viewData();
          }
+         
+         function modi(todo,index){
+            inpElem.value = todo;
+            numElem.value = index;
+            btnIpElem.style.display = "none"
+            btnMoElem.style.display = "inline-block"
+         }
+
     </script>
 </html>
+
