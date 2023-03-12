@@ -1,0 +1,67 @@
+$width: 1000px;
+$mColor: #ccc;
+$sColor: skyblue;
+
+.container {
+    width: $width;
+    margin: 0 auto;
+}
+
+.sub {
+    display: none;
+}
+
+.gnb {
+    background: $mColor;
+    height: 40px;
+
+    >ul {
+        height: 100%;
+        display: flex;
+
+        >li {
+            width: 20%;
+
+            >a {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &:hover {
+                background: $sColor;
+            }
+            &:hover .sub{
+                display: none;
+            }
+            .sub {
+                background: $sColor;
+                width: 100%;
+
+                li {
+                    height: 35px;
+                    text-align: center;
+
+                    a {
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        &:hover {
+                            background: brown;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.visual{
+    height: 300px;
+    background: pink;
+}
+
